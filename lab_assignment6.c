@@ -4,17 +4,17 @@
 int search(int numbers[], int low, int high, int value) 
 {
     if (low > high) {
-        return -1;
+        return -1; // Returns false when low is greater than high which is a condition in which the value being searched is not present in the list
     }
     int mid = (high + low) / 2;
     if (value == numbers[mid]) {
       return mid;
     }
-    if (value > numbers[mid]) {
+    if (value > numbers[mid]) { // value is on the right side of the mid
         mid++;
         return search(numbers,mid,high,value);
     } else {
-        mid--;
+        mid--; // value is on the left side
         return search(numbers,low,mid,value);
     }
     
